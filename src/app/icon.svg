@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect
+    x="2"
+    y="2"
+    width="96"
+    height="96"
+    fill="#f7f5f0"
+    stroke="#171717"
+    stroke-width="3"
+  />
+
+  <text
+    x="50"
+    y="58"
+    text-anchor="middle"
+    fill="#171717"
+    font-family="Arial, sans-serif"
+    font-size="31"
+    font-weight="600"
+    letter-spacing="-2"
+  >Ro.</text>
+</svg>
