@@ -34,7 +34,7 @@ const projects = [
     number: "02",
     title: "packspaceStack",
    type: "Order Processing System",
-    year: "2024",
+    year: "2026",
     description: "An automated system that manages incoming orders and sends them directly to the printer for seamless and efficient order fulfillment.",
     image: "/packspaceStack.png",
     href:"https://packspace-stack.vercel.app"
