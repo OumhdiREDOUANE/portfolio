@@ -565,9 +565,27 @@ useEffect(() => {
   <span ref={finalPointRef}>Let&apos;s talk.</span>
 </p>
 
-      <a href="mailto:hello@yassine.ma" className={styles.email}>
+      <a href="mailto:redouaneoumhdi@gmail.com" className={styles.email}>
         redouaneoumhdi@gmail.com <span>↗</span>
       </a>
+
+      <div className={styles.cvActions} aria-label="Curriculum vitae">
+        <a
+          href="/Redouane-Oumhdi-CV.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.cvLink}
+        >
+          View CV <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href="/Redouane-Oumhdi-CV.pdf"
+          download="Redouane-Oumhdi-CV.pdf"
+          className={`${styles.cvLink} ${styles.cvDownload}`}
+        >
+          Download CV <span aria-hidden="true">↓</span>
+        </a>
+      </div>
     </div>
 
    <div className={styles.envelope} aria-hidden="true">
