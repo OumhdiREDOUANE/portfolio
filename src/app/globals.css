@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f7f5f0;
   --foreground: #171717;
 }
-* {
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -14,6 +17,9 @@ html {
 
 body {
   margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "JetBrains Mono", Helvetica, sans-serif;
 }
 
 @theme inline {
@@ -23,15 +29,9 @@ body {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/ttf/JetBrainsMono-Regular.ttf") format("ttf");
+  src: url("/fonts/ttf/JetBrainsMono-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -39,14 +39,15 @@ body {
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/ttf/JetBrainsMono-Medium.ttf") format("ttf");
+  src: url("/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/ttf/JetBrainsMono-SemiBold.ttf") format("ttf");
+  src: url("/fonts/ttf/JetBrainsMono-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -54,33 +55,8 @@ body {
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/ttf/JetBrainsMono-Bold.ttf") format("ttf");
+  src: url("/fonts/ttf/JetBrainsMono-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "JetBrains Mono", Helvetica, sans-serif;
-} 
-.section0{
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 8px;
-  /* مهم جدًا */
-}
-
-.content{
-
-  grid-column: 1 / span 5;
-}
-
-.visual{
-  grid-column: 6 / span 7;
-  position: relative;
-  
-}
-

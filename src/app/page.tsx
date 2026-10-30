@@ -28,7 +28,7 @@ const projects = [
     year: "2025",
    description: "A modern e-commerce platform designed to make packaging products easy to discover, explore, and purchase.",
     image: "/packspace.png",
-    href:"https://packspace-fin-eight.vercel.app"
+    href:"https://mediumvioletred-ibis-125124.hostingersite.com"
   },
   {
     number: "02",
@@ -38,7 +38,15 @@ const projects = [
     description: "An automated system that manages incoming orders and sends them directly to the printer for seamless and efficient order fulfillment.",
     image: "/packspaceStack.png",
     href:"https://packspace-stack.vercel.app"
-  },
+  },{
+  number: "03",
+  title: "Visitimlaline",
+  type: "Tourism Booking Platform",
+  year: "2026",
+  description: "A modern tourism booking platform that allows visitors to discover local experiences, explore activities, book tours, and manage their reservations with digital tickets and QR code check-in.",
+  image: "/visitimlaline.png",
+  href: "https://visitimlaline.com"
+},
   
 ];
 const processSteps = [
@@ -405,41 +413,47 @@ useEffect(() => {
 
   <div className={styles.projects}>
     {projects.map((project, index) => (
-      <a
-        href={`${project.href}`}
-        target="_blanck"
-        className={styles.project}
-        key={project.number}
-        style={{ "--index": index } as React.CSSProperties}
-      >
-        <div className={styles.projectVisual}>
-  <Image
-    src={project.image}
-    alt={`${project.title} project preview`}
-    fill
-    sizes="(max-width: 700px) 100vw, 55vw"
-    className={styles.projectImage}
-  />
+      
+<a
+  href={project.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.project}
+  key={project.number}
+  style={{ "--index": index }}
+>
+  <div className={styles.projectVisual}>
+    <Image
+      src={project.image}
+      alt={`${project.title} project preview`}
+      fill
+      quality={85}
+      sizes="(max-width: 640px) 100vw, (max-width: 1200px) 65vw, 650px"
+      className={styles.projectImage}
+    />
 
-  <span className={styles.projectNumber}>{project.number}</span>
+    <span className={styles.projectNumber}>
+      {project.number}
+    </span>
 
-  <span className={styles.viewProject}>
-    View case study ↗
-  </span>
-</div>
+    <span className={styles.viewProject}>
+      View case study ↗
+    </span>
+  </div>
 
-        <div className={styles.projectInfo}>
-          <div>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-          </div>
+  <div className={styles.projectInfo}>
+    <div>
+      <h3>{project.title}</h3>
+      <p>{project.description}</p>
+    </div>
 
-          <div className={styles.projectMeta}>
-            <span>{project.type}</span>
-            <span>{project.year}</span>
-          </div>
-        </div>
-      </a>
+    <div className={styles.projectMeta}>
+      <span>{project.type}</span>
+      <span>{project.year}</span>
+    </div>
+  </div>
+</a>
+
     ))}
   </div>
 </section>

@@ -1,16 +1,19 @@
-:global(*) {
-  box-sizing: border-box;
+
+.section0 {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
 }
 
-:global(html) {
-  scroll-behavior: smooth;
+.content {
+  grid-column: 1 / span 5;
 }
 
-:global(body) {
-  margin: 0;
-  background: #f7f5f0;
+.visual {
+  grid-column: 6 / span 7;
+  position: relative;
 }
-
 .hero {
   --paper: #f7f5f0;
   --ink: #171717;
@@ -1286,4 +1289,231 @@
 /* page.module.css */
 .hero, .about, .work, .technologies, .contact {
   background: transparent;   /* was: var(--paper) */
+}
+
+.projectVisual {
+  aspect-ratio: 1.25 / 1;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+
+.projectImage {
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+  transform: none;
+  transition: transform 0.5s ease;
+}
+
+.projectVisual::after {
+  display: none;
+}
+
+.project:hover .projectImage {
+  transform: scale(1.025);
+  filter: none;
+}
+
+/* =====================================
+   SELECTED WORK — EDITORIAL STYLE
+===================================== */
+
+.work {
+  --paper: #f7f5f0;
+  --ink: #171717;
+  --text: #4b4a47;
+  --muted: #7a7873;
+
+  min-height: auto;
+  padding: clamp(70px, 10vw, 130px) 24px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.workHeader {
+  width: min(100%, 1100px);
+  margin: 0 auto clamp(70px, 10vw, 130px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.projects {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(80px, 11vw, 145px);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+  gap: clamp(28px, 6vw, 85px);
+  align-items: center;
+
+  color: var(--ink);
+  text-decoration: none;
+
+  opacity: 0;
+  transform: translateY(45px);
+  transition: color 0.3s ease;
+}
+
+/* Image frame */
+.projectVisual {
+  aspect-ratio: 1.65 / 1;
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid var(--ink);
+  background: var(--paper);
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* Remove the old color overlay */
+.projectVisual::after {
+  display: none !important;
+}
+
+/* Preserve original screenshot colors */
+.projectImage {
+  object-fit: contain;
+  object-position: center;
+
+  filter: none !important;
+  transform: none;
+
+  transition: transform 0.6s ease;
+}
+
+/* Elegant hover */
+.project:hover .projectVisual {
+  transform: translateY(-5px);
+  background: var(--paper);
+}
+
+.project:hover .projectImage {
+  transform: scale(1.015);
+  filter: none !important;
+}
+
+/* Number and link */
+.projectNumber,
+.viewProject {
+  position: absolute;
+  z-index: 2;
+
+  padding: 7px 9px;
+  background: var(--paper);
+  color: var(--ink);
+
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projectNumber {
+  top: 12px;
+  left: 12px;
+}
+
+.viewProject {
+  right: 12px;
+  bottom: 12px;
+}
+
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+  min-height: 190px;
+}
+
+.projectInfo h3 {
+  margin: 0 0 16px;
+
+  font-family: var(--font-bricolage);
+  font-size: clamp(2.5rem, 4.5vw, 4.7rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+
+  transition: transform 0.4s ease;
+}
+
+.project:hover .projectInfo h3 {
+  transform: translateX(5px);
+}
+
+.projectInfo p {
+  max-width: 300px;
+  margin: 0;
+
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.projectMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding-top: 13px;
+  border-top: 1px solid var(--ink);
+
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.project:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 7px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .work {
+    padding: 75px 18px;
+  }
+
+  .workHeader {
+    margin-bottom: 60px;
+  }
+
+  .projects {
+    gap: 75px;
+  }
+
+  .project {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .projectVisual {
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .projectInfo {
+    min-height: auto;
+    gap: 24px;
+  }
+
+  .projectInfo h3 {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+  }
+
+  .projectInfo p {
+    max-width: 100%;
+  }
 }
